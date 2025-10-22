@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1628aca-63a0-4d74-83d4-6cab440338b1" name="Changes" comment="mofiffy type productEntoty and add baseEntity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="33oBAqEeNG1RVJAixOHKsH7kJRo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring",
+    "onboarding.tips.debug.path": "/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring/springdata/src/main/java/com/arielzarate/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.24597701",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.31933594"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.arielzarate.Application" />
+      <module name="springdata" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arielzarate.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1628aca-63a0-4d74-83d4-6cab440338b1" name="Changes" comment="" />
+      <created>1759973403363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759973403363</updated>
+    </task>
+    <task id="LOCAL-00001" summary="refactor code">
+      <option name="closed" value="true" />
+      <created>1760484238613</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760484238613</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ADD CONTROLLER ADVICE">
+      <option name="closed" value="true" />
+      <created>1760494861422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760494861422</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor mapper and add putMapping and delete">
+      <option name="closed" value="true" />
+      <created>1760499111927</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760499111927</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mofiffy type productEntoty and add baseEntity">
+      <option name="closed" value="true" />
+      <created>1760804774259</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760804774259</updated>
+    </task>
+    <task id="LOCAL-00005" summary="mofiffy type productEntoty and add baseEntity">
+      <option name="closed" value="true" />
+      <created>1760804791267</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760804791267</updated>
+    </task>
+    <task id="LOCAL-00006" summary="mofiffy type productEntoty and add baseEntity">
+      <option name="closed" value="true" />
+      <created>1760805340418</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760805340418</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor code" />
+    <MESSAGE value="ADD CONTROLLER ADVICE" />
+    <MESSAGE value="refactor mapper and add putMapping and delete" />
+    <MESSAGE value="mofiffy type productEntoty and add baseEntity" />
+    <option name="LAST_COMMIT_MESSAGE" value="mofiffy type productEntoty and add baseEntity" />
+  </component>
+</project>
