@@ -1,16 +1,19 @@
-package com.arielzarate.domain.model;
+package com.arielzarate.infraestructure.rest.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+@Setter
+@Getter
+public class ClientResponse {
+    private Long clientId;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
-    private Address address;
+    private AddressResponse address;
 }

@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -13,16 +14,16 @@ import java.util.List;
 @Setter
 @Getter
 public class ClientEntity extends BaseEntity {
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     @Column(name = "email", unique = true, nullable = false)
     private String email;
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone")
     private String phone;
-    @OneToMany(mappedBy = "clientAddress" ,cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AddressClientEntity> addresses  ;
+    @OneToMany(mappedBy = "clientAddress" ,cascade = CascadeType.ALL, orphanRemoval = true )
+    private List<AddressClientEntity> addresses=new ArrayList<>();
     @OneToMany(mappedBy = "clientOrders", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderEntity> orders;
 }

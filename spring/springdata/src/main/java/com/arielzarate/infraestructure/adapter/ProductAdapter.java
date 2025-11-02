@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class ProductPersistenceAdapter implements ProductPersistencePort {
+public class ProductAdapter implements ProductPersistencePort {
 
     private  ProductRepository productRepository;
     private  ProductEntityMapper mapper;
