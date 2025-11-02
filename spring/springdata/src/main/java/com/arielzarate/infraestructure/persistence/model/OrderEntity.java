@@ -34,6 +34,8 @@ public class OrderEntity extends BaseEntity {
     )
     private List<ProductEntity> products;
 
+    private String status; // estado del pedido
+
  /**
   ✅ El lado inverso (no dueño) de la relación.
 

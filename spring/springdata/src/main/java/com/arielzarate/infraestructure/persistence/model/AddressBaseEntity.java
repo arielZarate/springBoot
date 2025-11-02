@@ -1,8 +1,8 @@
 package com.arielzarate.infraestructure.persistence.model;
 
 
-import jakarta.persistence.*;
-import jakarta.xml.bind.annotation.XmlSchemaTypes;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 

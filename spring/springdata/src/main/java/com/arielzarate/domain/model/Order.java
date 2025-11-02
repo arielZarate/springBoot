@@ -1,5 +1,6 @@
 package com.arielzarate.domain.model;
 
+import com.arielzarate.domain.model.enums.OrderStatus;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,5 +16,6 @@ public class Order {
         private Client client; // referencia al cliente
         private List<Product> products; // productos que tiene el pedido
         private LocalDateTime orderDate; // fecha del pedido
+        private OrderStatus status; // estado del pedido
 
 }

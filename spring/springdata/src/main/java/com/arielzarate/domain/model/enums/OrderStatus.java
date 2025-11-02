@@ -1,4 +1,4 @@
-package com.arielzarate.infraestructure.persistence.model;
+package com.arielzarate.domain.model.enums;
 
 
 public enum OrderStatus {
