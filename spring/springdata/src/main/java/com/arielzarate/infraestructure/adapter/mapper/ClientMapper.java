@@ -11,21 +11,6 @@ import java.util.List;
 @Component
 public class ClientMapper {
 
-    //mapeo directo sin mapstruct me parece mas claro asi
-
-    public Client mapToDomain(ClientEntity clientEntity) {
-        if (clientEntity == null) {
-            return null;
-        }
-        Client client = new Client();
-        client.setClientId(clientEntity.getId());
-        client.setFirstName(clientEntity.getFirstName());
-        clientEntity.setLastName(clientEntity.getLastName());
-        client.setEmail(clientEntity.getEmail());
-        client.setPhone(clientEntity.getPhone());
-        client.setAddresses(mapAddressesToDomain(clientEntity.getAddresses()));
-        return client;
-    }
 
     public ClientEntity mapToEntity(Client client) {
         if (client == null) {
@@ -36,11 +21,34 @@ public class ClientMapper {
         clientEntity.setLastName(client.getLastName().trim());
         clientEntity.setEmail(client.getEmail().trim());
         clientEntity.setPhone(client.getPhone().trim());
-        //mapeo las Address del domain al entity
         clientEntity.setAddresses(mapAddressesToEntity(client.getAddresses()));
         return clientEntity;
     }
 
+    public Client mapToDomainBasic(ClientEntity clientEntity) {
+        if (clientEntity == null) return null;
+
+        Client client = new Client();
+        client.setClientId(clientEntity.getId());
+        client.setFirstName(clientEntity.getFirstName());
+        client.setLastName(clientEntity.getLastName());
+        client.setEmail(clientEntity.getEmail());
+        client.setPhone(clientEntity.getPhone());
+        client.setAddresses(null);
+        return client;
+    }
+
+    //for detail view, with addresses
+    public Client mapToDomainWithAddresses(ClientEntity clientEntity) {
+        if (clientEntity == null) return null;
+
+        Client client = mapToDomainBasic(clientEntity);
+        client.setAddresses(mapAddressesToDomain(clientEntity.getAddresses()));
+        return client;
+    }
+
+
+    // ========= Address mappers =========
 
     public List<AddressClientEntity> mapAddressesToEntity(List<Address> addresses) {
 

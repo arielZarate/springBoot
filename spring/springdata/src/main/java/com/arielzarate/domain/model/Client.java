@@ -19,5 +19,4 @@ public class Client extends Person {
     private List<Address> addresses;
     private List<Order> orders = List.of();
 
-
 }

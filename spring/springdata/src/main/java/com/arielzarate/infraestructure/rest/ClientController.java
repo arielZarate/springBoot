@@ -10,10 +10,13 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
@@ -32,6 +35,15 @@ public class ClientController {
         ClientResponse response = clientMapper.mapToClientResponse(createdClient);
         log.info("Response POST/client {}", response);
         return ResponseEntity.ok().body(response);
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<ClientResponse>> getAllClients() {
+        log.info("Request GET/client -  get all clients");
+        List<ClientResponse> list = clientMapper.mapToClientResponseList(clientService.getAllClients());
+        log.info("Response GET/client -  get all clients {}", list);
+        return ResponseEntity.ok().body(list);
     }
 
 }

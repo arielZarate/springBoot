@@ -34,6 +34,15 @@ public abstract class ClientMapper {
     //  @Mapping(target = "addresses", ignore = true)
     // @Mapping(target = "orders" ,ignore = true)
     public abstract ClientResponse mapToClientResponse(Client client);
+
+
+    public List<ClientResponse> mapToClientResponseList(List<Client> clients) {
+        return clients.stream()
+                .map(this::mapToClientResponse)
+                .toList();
+    }
+
+
 }
 
 

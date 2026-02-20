@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1628aca-63a0-4d74-83d4-6cab440338b1" name="Changes" comment="mofiffy type productEntoty and add baseEntity">
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ClientUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ClientUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/out/ClientPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/out/ClientPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ClientAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ClientAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ClientMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/home/ariel/Escritorio/Repo/springBoot/spring" value="33oBAqEeNG1RVJAixOHKsH7kJRo" />
+    </persistenceIdMap>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring",
-    "onboarding.tips.debug.path": "/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring/springdata/src/main/java/com/arielzarate/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.24597701",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.31933594"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ariel/Escritorio/Repo/springBoot/spring&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring/springdata/src/main/java/com/arielzarate/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24597701&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.31933594&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.arielzarate.Application" />
@@ -144,5 +158,13 @@
     <MESSAGE value="refactor mapper and add putMapping and delete" />
     <MESSAGE value="mofiffy type productEntoty and add baseEntity" />
     <option name="LAST_COMMIT_MESSAGE" value="mofiffy type productEntoty and add baseEntity" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

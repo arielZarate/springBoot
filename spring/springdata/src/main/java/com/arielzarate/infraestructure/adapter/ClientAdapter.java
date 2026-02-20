@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Component
@@ -28,12 +29,14 @@ public class ClientAdapter implements ClientPort {
         ClientEntity cliententity = clientRepository.save(clientMapper.mapToEntity(client));
 
         log.info("Client saved successfully: {}", cliententity);
-        return clientMapper.mapToDomain(cliententity);
+        return clientMapper.mapToDomainBasic(cliententity);
     }
 
     @Override
-    public Client getClientById(Long clientId) {
-        return null;
+    public Optional<Client> getClientById(Long clientId) {
+        return clientRepository.findById(clientId)
+                .map(clientMapper::mapToDomainWithAddresses);
+
     }
 
     @Override
@@ -51,8 +54,10 @@ public class ClientAdapter implements ClientPort {
         return false;
     }
 
+
+    //only clients
     @Override
     public List<Client> getAllClients() {
-        return List.of();
+        return clientRepository.findAll().stream().map(clientMapper::mapToDomainBasic).toList();
     }
 }

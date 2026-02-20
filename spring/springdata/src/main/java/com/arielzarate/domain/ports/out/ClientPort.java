@@ -3,11 +3,12 @@ package com.arielzarate.domain.ports.out;
 import com.arielzarate.domain.model.Client;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ClientPort {
     public Client saveClient(Client client);
 
-    public Client getClientById(Long clientId);
+    public Optional<Client> getClientById(Long clientId);
 
     public void deleteClient(Long clientId);
 
