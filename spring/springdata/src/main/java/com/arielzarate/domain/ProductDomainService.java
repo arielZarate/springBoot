@@ -4,7 +4,7 @@ package com.arielzarate.domain;
 import com.arielzarate.domain.model.Product;
 import com.arielzarate.domain.ports.out.ProductPersistencePort;
 import com.arielzarate.error.model.ApplicationError;
-import com.arielzarate.error.model.exception.ApplicationErrorException;
+import com.arielzarate.error.model.exception.ApplicationException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,13 +24,13 @@ public class ProductDomainService {
     }
 
     public Product getById(Long id) {
-        return productPersistencePort.findProductById(id).orElseThrow(() -> new ApplicationErrorException(ApplicationError.notFound("id : " + id)));
+        return productPersistencePort.findProductById(id).orElseThrow(() -> new ApplicationException(ApplicationError.notFound("id : " + id)));
     }
 
 
     public Product create(Product product) {
         if (productPersistencePort.findProductByName(product.getName()).isPresent()) {
-            throw new ApplicationErrorException(ApplicationError.badRequest("Product with name '" + product.getName() + "' already exists."));
+            throw new ApplicationException(ApplicationError.badRequest("Product with name '" + product.getName() + "' already exists."));
         }
 
         product.setName(product.getName().trim());
@@ -41,7 +41,7 @@ public class ProductDomainService {
         Product prod = this.getById(id);
 
         if (productPersistencePort.existsProductByNameAndIdNot(product.getName(), id)) {
-            throw new ApplicationErrorException(ApplicationError.badRequest("Product with name '" + product.getName() + "' already exists."));
+            throw new ApplicationException(ApplicationError.badRequest("Product with name '" + product.getName() + "' already exists."));
         }
         prod.setName(product.getName().trim());
         prod.setDescription(product.getDescription());
