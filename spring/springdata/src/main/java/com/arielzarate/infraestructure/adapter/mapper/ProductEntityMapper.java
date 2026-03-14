@@ -13,6 +13,7 @@ public interface ProductEntityMapper {
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "deletedAt", ignore = true)
+    @Mapping(target = "orders", ignore = true)
     ProductEntity toEntity(Product product);
 
     @Mapping(

@@ -65,10 +65,12 @@ public class ClientMapper {
             return null;
         }
         Address address = new Address();
+        address.setAddressId(addressEntities.getId());
         address.setStreet(addressEntities.getStreet().trim());
         address.setCity(addressEntities.getCity().trim());
         address.setState(addressEntities.getState().trim());
         address.setPostalCode(addressEntities.getPostalCode().trim());
+        address.setCountry(addressEntities.getCountry() != null ? addressEntities.getCountry().trim() : null);
         return address;
     }
 

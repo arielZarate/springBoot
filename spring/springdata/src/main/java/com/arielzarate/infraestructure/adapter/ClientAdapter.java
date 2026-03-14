@@ -29,7 +29,7 @@ public class ClientAdapter implements ClientPort {
         ClientEntity cliententity = clientRepository.save(clientMapper.mapToEntity(client));
 
         log.info("Client saved successfully: {}", cliententity);
-        return clientMapper.mapToDomainBasic(cliententity);
+        return clientMapper.mapToDomainWithAddresses(cliententity);
     }
 
     @Override
@@ -60,6 +60,6 @@ public class ClientAdapter implements ClientPort {
     //only clients
     @Override
     public List<Client> getAllClients() {
-        return clientRepository.findAll().stream().map(clientMapper::mapToDomainBasic).toList();
+        return clientRepository.findAll().stream().map(clientMapper::mapToDomainWithAddresses).toList();
     }
 }

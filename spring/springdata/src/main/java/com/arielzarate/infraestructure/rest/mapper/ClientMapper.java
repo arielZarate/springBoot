@@ -32,6 +32,8 @@ public abstract class ClientMapper {
     }
 
 
+    @Mapping(target = "clientId", source = "clientId")
+    @Mapping(target = "address", source = "address")
     public abstract ClientResponse mapToClientResponse(Client client);
 
 
