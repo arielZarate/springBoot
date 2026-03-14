@@ -4,9 +4,7 @@ package com.arielzarate.application;
 import com.arielzarate.domain.model.Client;
 import com.arielzarate.domain.ports.in.ClientService;
 import com.arielzarate.domain.ports.out.ClientPort;
-import com.arielzarate.error.model.ApplicationError;
 import com.arielzarate.error.model.ClientError;
-import com.arielzarate.error.model.exception.ApplicationException;
 import com.arielzarate.error.model.exception.ClientException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,8 +34,11 @@ public class ClientUseCase implements ClientService {
     }
 
     @Override
-    public Client updateClient(Client client) {
-        return null;
+    public Client updateClient(Client client, Long clientId) {
+        if (!clientPort.existsById(clientId)) {
+            throw new ClientException(ClientError.clientNotFound("Client not found with id: " + clientId));
+        }
+        return clientPort.updateClient(client);
     }
 
     @Override

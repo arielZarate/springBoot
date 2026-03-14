@@ -10,8 +10,11 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +47,31 @@ public class ClientController {
         List<ClientResponse> list = clientMapper.mapToClientResponseList(clientService.getAllClients());
         log.info("Response GET/client -  get all clients {}", list);
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping("/{clientId}")
+    public ResponseEntity<ClientResponse> getClientById(@PathVariable Long clientId) {
+        log.info("Request GET/client/{} -  get client by id", clientId);
+        Client client = clientService.getClientById(clientId);
+        ClientResponse response = clientMapper.mapToClientResponse(client);
+        log.info("Response GET/client/{} -  get client by id {}", clientId, response);
+        return ResponseEntity.ok().body(response);
+    }
+
+    @PutMapping("/{clientId}")
+    public ResponseEntity<ClientResponse> updateClient(@PathVariable Long clientId, @RequestBody ClientRequest request) {
+        log.info("Request PUT/client/{} -  update client with body : {}", clientId, request);
+        Client client = clientMapper.mapToDomainWithAddresses(request); //mapear de dto a dominio
+       // client.setClientId(clientId);
+        Client updatedClient = clientService.updateClient(client, clientId);
+        ClientResponse response = clientMapper.mapToClientResponse(updatedClient);
+        log.info("Response PUT/client/{} -  update client {}", clientId, response);
+        return ResponseEntity.ok().body(response);
+    }
+
+    @DeleteMapping("/{clientId}")
+    public ResponseEntity<Void> deleteClient(@PathVariable Long clientId) {
+        return null;
     }
 
 }

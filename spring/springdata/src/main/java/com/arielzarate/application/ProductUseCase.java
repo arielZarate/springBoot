@@ -1,7 +1,7 @@
 package com.arielzarate.application;
 
 
-import com.arielzarate.domain.ProductDomainService;
+import com.arielzarate.domain.services.ProductDomainService;
 import com.arielzarate.domain.model.Product;
 import com.arielzarate.domain.ports.in.ProductService;
 import lombok.AllArgsConstructor;

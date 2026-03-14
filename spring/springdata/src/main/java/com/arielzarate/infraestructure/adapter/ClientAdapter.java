@@ -34,7 +34,7 @@ public class ClientAdapter implements ClientPort {
 
     @Override
     public Optional<Client> getClientById(Long clientId) {
-        return clientRepository.findById(clientId)
+        return clientRepository.findByIdWithAddresses(clientId)
                 .map(clientMapper::mapToDomainWithAddresses);
 
     }
@@ -46,12 +46,14 @@ public class ClientAdapter implements ClientPort {
 
     @Override
     public Client updateClient(Client client) {
-        return null;
+        log.info("Request adapter {}",client);
+        ClientEntity clientEntity = clientRepository.save(clientMapper.mapToEntity(client));
+        return  clientMapper.mapToDomainWithAddresses(clientEntity);
     }
 
     @Override
     public boolean existsById(Long clientId) {
-        return false;
+        return clientRepository.existsById(clientId);
     }
 
 

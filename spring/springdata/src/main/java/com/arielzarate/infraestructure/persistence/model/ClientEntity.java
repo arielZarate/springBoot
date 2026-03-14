@@ -1,11 +1,16 @@
 package com.arielzarate.infraestructure.persistence.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -22,14 +27,18 @@ public class ClientEntity extends BaseEntity {
     private String email;
     @Column(name = "phone")
     private String phone;
-    @OneToMany(mappedBy = "clientAddress" ,cascade = CascadeType.ALL, orphanRemoval = true )
-    private List<AddressClientEntity> addresses=new ArrayList<>();
-    @OneToMany(mappedBy = "clientOrders", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderEntity> orders;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "address_id")//fk client
+    private AddressEntity address;
+
+//    @OneToMany(mappedBy = "clientOrders", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<OrderEntity> orders;
 }
 
 /**
  *
  * cascade = CascadeType.ALL → si guardás o borrás un cliente, se aplican automáticamente los mismos cambios a sus direcciones.
  *
- * */
+ *
+ */

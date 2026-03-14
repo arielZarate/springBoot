@@ -1,4 +1,4 @@
-package com.arielzarate.domain;
+package com.arielzarate.domain.services;
 
 
 import com.arielzarate.domain.model.Product;

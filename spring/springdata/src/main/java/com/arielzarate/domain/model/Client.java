@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 public class Client extends Person {
     private Long clientId;
-    private List<Address> addresses;
+    private Address address;
     private List<Order> orders = List.of();
 
 }
