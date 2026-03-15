@@ -3,9 +3,7 @@ package com.arielzarate.application;
 
 import com.arielzarate.domain.model.Client;
 import com.arielzarate.domain.ports.in.ClientService;
-import com.arielzarate.domain.ports.out.ClientPort;
-import com.arielzarate.error.model.ClientError;
-import com.arielzarate.error.model.exception.ClientException;
+import com.arielzarate.domain.services.ClientDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,34 +13,37 @@ import java.util.List;
 @AllArgsConstructor
 public class ClientUseCase implements ClientService {
 
-    private final ClientPort clientPort;
+    private final ClientDomainService clientDomainService;
 
     @Override
-    public Client createClient(Client client) {
-        return clientPort.saveClient(client);
+    public Client create(Client client) {
+        return clientDomainService.createClient(client);
     }
 
     @Override
-    public Client getClientById(Long clientId) {
-        return clientPort.getClientById(clientId)
-                .orElseThrow(() -> new ClientException(ClientError.clientNotFound("Client not found with id: " + clientId)));
+    public Client getById(Long clientId) {
+        return clientDomainService.getClientById(clientId);
     }
 
     @Override
-    public void deleteClient(Long clientId) {
-
+    public void delete(Long clientId) {
+        clientDomainService.deleteClient(clientId);
     }
 
     @Override
-    public Client updateClient(Client client, Long clientId) {
-        if (!clientPort.existsById(clientId)) {
-            throw new ClientException(ClientError.clientNotFound("Client not found with id: " + clientId));
-        }
-        return clientPort.updateClient(client);
+    public Client update(Client client, Long clientId) {
+        return clientDomainService.updateClient(client, clientId);
     }
 
     @Override
-    public List<Client> getAllClients() {
-        return clientPort.getAllClients();
+    public List<Client> getAll() {
+        return clientDomainService.getAllClients();
     }
+
+    @Override
+    public void activate(Long clientId) {
+        clientDomainService.activateClient(clientId);
+    }
+
+
 }

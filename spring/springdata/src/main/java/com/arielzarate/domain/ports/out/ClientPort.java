@@ -17,4 +17,8 @@ public interface ClientPort {
     public boolean existsById(Long clientId);
 
     public List<Client> getAllClients();
+
+    public boolean existsByEmail(String email);
+
+    public void activateClient(Long clientId);
 }

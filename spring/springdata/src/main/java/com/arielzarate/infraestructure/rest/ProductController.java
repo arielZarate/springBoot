@@ -3,8 +3,8 @@ package com.arielzarate.infraestructure.rest;
 
 import com.arielzarate.domain.model.Product;
 import com.arielzarate.domain.ports.in.ProductService;
-import com.arielzarate.infraestructure.rest.dto.ProductRequest;
-import com.arielzarate.infraestructure.rest.dto.ProductResponse;
+import com.arielzarate.infraestructure.rest.dto.request.ProductRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ProductResponse;
 import com.arielzarate.infraestructure.rest.mapper.ProductMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

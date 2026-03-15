@@ -1,14 +1,14 @@
-package com.arielzarate.infraestructure.persistence.model;
+package com.arielzarate.infraestructure.persistence.entity;
 
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PreRemove;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -33,13 +33,17 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "is_active", nullable = false)
     private Boolean isActive = true;
 
-
-    public boolean softDelete() {
+    public void softDelete() {
         if (this.isActive) {
             this.isActive = false;
             this.deletedAt = LocalDateTime.now();
-            return true;
         }
-        return false;
+    }
+
+    public void softActive() {
+        if (!this.isActive) {
+            this.isActive = true;
+            this.deletedAt = null;
+        }
     }
 }

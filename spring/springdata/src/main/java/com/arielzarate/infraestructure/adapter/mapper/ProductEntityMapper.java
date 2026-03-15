@@ -2,7 +2,7 @@ package com.arielzarate.infraestructure.adapter.mapper;
 
 
 import com.arielzarate.domain.model.Product;
-import com.arielzarate.infraestructure.persistence.model.ProductEntity;
+import com.arielzarate.infraestructure.persistence.entity.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

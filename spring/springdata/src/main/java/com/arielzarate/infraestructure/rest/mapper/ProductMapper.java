@@ -2,8 +2,8 @@ package com.arielzarate.infraestructure.rest.mapper;
 
 
 import com.arielzarate.domain.model.Product;
-import com.arielzarate.infraestructure.rest.dto.ProductRequest;
-import com.arielzarate.infraestructure.rest.dto.ProductResponse;
+import com.arielzarate.infraestructure.rest.dto.request.ProductRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ProductResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

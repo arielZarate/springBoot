@@ -1,18 +1,18 @@
-package com.arielzarate.infraestructure.rest.dto;
-
+package com.arielzarate.infraestructure.rest.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest {
+public class ProductResponse {
+    private Long productId;
     private String name;
     private String description;
     private Double price;
     private Integer stock;
+    private Boolean isActive;
+
 }

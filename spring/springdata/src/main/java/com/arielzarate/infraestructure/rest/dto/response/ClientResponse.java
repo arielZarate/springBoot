@@ -1,4 +1,4 @@
-package com.arielzarate.infraestructure.rest.dto;
+package com.arielzarate.infraestructure.rest.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,5 +17,12 @@ public class ClientResponse {
     private String lastName;
     private String email;
     private String phone;
-    private AddressResponse address;
+    private Boolean active;
+
+    //address fields
+    private String street;
+    private String city;
+    private String state;
+    private String zipCode;
+    private String country;
 }

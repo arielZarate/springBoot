@@ -1,4 +1,4 @@
-package com.arielzarate.infraestructure.persistence.model;
+package com.arielzarate.infraestructure.persistence.entity;
 
 
 import jakarta.persistence.Column;
