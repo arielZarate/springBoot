@@ -1,4 +1,4 @@
-package com.arielzarate;
+package com.fake_store_login;
 
 
 import org.springframework.context.annotation.Bean;

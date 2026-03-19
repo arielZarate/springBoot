@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/spring/pom.xml" />
         <option value="$PROJECT_DIR$/autowiredExample/pom.xml" />
         <option value="$PROJECT_DIR$/componentExample/pom.xml" />
+        <option value="$PROJECT_DIR$/springWebClient/pom.xml" />
+        <option value="$PROJECT_DIR$/Crud-MVC/pom.xml" />
       </list>
     </option>
   </component>

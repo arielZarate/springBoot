@@ -5,25 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1628aca-63a0-4d74-83d4-6cab440338b1" name="Changes" comment="mofiffy type productEntoty and add baseEntity">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Crud-MVC.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Crud-MVC/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/autowiredExample/autowiredExample.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springWebClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/copilot.data.migration.ask.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/springBoot.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ClientUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ClientUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/in/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/in/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ClientAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ClientAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ClientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/model/AddressBaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/model/AddressEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/model/AddressClientEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/model/ClientEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/model/ClientEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/AddressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/AddressRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/ClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/ClientRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/ClientResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/ClientResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/AddressMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/AddressMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autowiredExample/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/autowiredExample/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/componentExample/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/componentExample/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/componentExample/target/classes/com/arielzarate/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springOrderEjecutionContext/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springOrderEjecutionContext/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/UsuarioServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/UsuarioServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/springOrderEjecutionContext/src/main/java/com/arielzarate/Version.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/DOCUMENTACION.md" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/DOCUMENTACION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ClientUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/application/ClientUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/application/ProductUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/application/ProductUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/model/enums/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/model/enums/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/in/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/ports/in/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/in/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/ports/in/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/out/ClientPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/ports/out/ClientPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/ports/out/ProductPersistencePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/ports/out/ProductPersistencePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/services/ClientDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/services/ClientDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/domain/services/ProductDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/domain/services/ProductDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/error/handlerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/error/handlerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/error/model/ApplicationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/error/model/ApplicationError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/error/model/ClientError.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/error/model/ClientError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/error/model/exception/ApplicationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/error/model/exception/ApplicationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/error/model/exception/ClientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/error/model/exception/ClientException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ClientAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/adapter/ClientAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/ProductAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/adapter/ProductAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ClientEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/adapter/mapper/ClientEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/adapter/mapper/ProductEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/adapter/mapper/ProductEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/entity/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/entity/AddressEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/entity/ClientEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/entity/ClientEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/entity/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/entity/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/persistence/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/persistence/repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/request/ClientRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/dto/request/ClientRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/request/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/dto/request/ProductRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/response/ClientResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/dto/response/ClientResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/dto/response/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/dto/response/ProductResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springdata/src/main/java/com/arielzarate/infraestructure/rest/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springdata/src/main/java/com/fake_store_login/infraestructure/rest/mapper/ProductMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +113,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Application (1).executor": "Run",
     "Application.Application.executor": "Run",
     "Application.Main.executor": "Run",
     "Maven.springdata [org.apache.maven.plugins:maven-clean-plugin:3.4.1:clean].executor": "Run",
@@ -73,24 +122,38 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ariel/Escritorio/Repo/springBoot/spring",
-    "onboarding.tips.debug.path": "/home/ariel/Escritorio/OracleCertifiedProfessionalJavaSE17Developer/spring/springdata/src/main/java/com/arielzarate/Main.java",
-    "project.structure.last.edited": "Project",
+    "onboarding.tips.debug.path": "/home/ariel/Escritorio/Repo/springBoot/spring/Crud-MVC/src/main/java/com/videocursos/Main.java",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.24597701",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.31933594"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Application (1)">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.arielzarate.Application" />
+      <option name="MAIN_CLASS_NAME" value="com.fake_store_login.Application" />
       <module name="springdata" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.arielzarate.domain.model.*" />
+          <option name="PATTERN" value="com.fake_store_login.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fake_store_login.Application" />
+      <module name="springWebClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fake_store_login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,6 +163,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Application (1)" />
         <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>

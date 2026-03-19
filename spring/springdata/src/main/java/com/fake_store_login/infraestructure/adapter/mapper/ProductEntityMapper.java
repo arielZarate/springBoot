@@ -1,0 +1,25 @@
+package com.fake_store_login.infraestructure.adapter.mapper;
+
+
+import com.fake_store_login.domain.model.Product;
+import com.fake_store_login.infraestructure.persistence.entity.ProductEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(componentModel = "spring")
+public interface ProductEntityMapper {
+
+    @Mapping(target = "isActive", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "deletedAt", ignore = true)
+    @Mapping(target = "orders", ignore = true)
+    ProductEntity toEntity(Product product);
+
+    @Mapping(
+            target = "productId",
+            source = "id"
+    )
+    Product toDomain(ProductEntity productEntity);
+
+}

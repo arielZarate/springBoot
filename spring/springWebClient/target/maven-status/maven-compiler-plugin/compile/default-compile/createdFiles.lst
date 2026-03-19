@@ -1,0 +1,9 @@
+com/arielzarate/provider/WebClientProvider.class
+com/arielzarate/provider/WebClientProvider$1.class
+com/arielzarate/service/LoginService.class
+com/arielzarate/exception/WebClientException.class
+com/arielzarate/config/WebClientConfig.class
+com/arielzarate/provider/WebClientMethod.class
+com/arielzarate/dto/LoginRequest.class
+com/arielzarate/dto/LoginResponse.class
+com/arielzarate/Application.class

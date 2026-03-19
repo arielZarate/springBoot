@@ -8,8 +8,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="componentExample" />
-        <module name="springdata" />
+        <module name="Crud-MVC" />
         <module name="autowiredExample" />
+      </profile>
+      <profile name="Annotation profile for springdata" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+        </processorPath>
+        <module name="springdata" />
+      </profile>
+      <profile name="Annotation profile for springWebClientLogin" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
+        </processorPath>
+        <module name="springWebClient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,8 +38,11 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="autowiredExample" options="" />
+      <module name="Crud-MVC" options="-parameters" />
+      <module name="autowiredExample" options="-parameters" />
+      <module name="componentExample" options="-parameters" />
       <module name="spring" options="-parameters" />
+      <module name="springWebClient" options="-parameters" />
       <module name="springdata" options="-parameters" />
     </option>
   </component>

@@ -13,7 +13,7 @@ Utiliza Spring Data JPA para persistencia y expone una API REST con documentaci�
 |----------|-------|
 | **Nombre** | springdata |
 | **Versión** | 1.0-SNAPSHOT |
-| **Grupo** | com.arielzarate |
+| **Grupo** | com.fake_store_login |
 | **Framework** | Spring Boot 3.5.6 |
 | **Java Version** | 21 |
 | **Build Tool** | Maven |
@@ -33,7 +33,6 @@ springdata/
 │   │   │   │   └── ProductUseCase.java
 │   │   │   ├── domain/                                    # Capa de Dominio
 │   │   │   │   ├── model/                                 # Entidades del dominio
-│   │   │   │   │   ├── Person.java
 │   │   │   │   │   ├── Client.java
 │   │   │   │   │   ├── Product.java
 │   │   │   │   │   ├── Order.java
@@ -48,17 +47,18 @@ springdata/
 │   │   │   │   │       ├── ClientPort.java
 │   │   │   │   │       └── ProductPersistencePort.java
 │   │   │   │   └── services/
+│   │   │   │       ├── ClientDomainService.java          # Lógica de negocio de Client
 │   │   │   │       └── ProductDomainService.java
 │   │   │   ├── infraestructure/                           # Capa de Infraestructura
 │   │   │   │   ├── adapter/                               # Implementación de Ports (Adapters)
 │   │   │   │   │   ├── ClientAdapter.java
 │   │   │   │   │   ├── ProductAdapter.java
 │   │   │   │   │   └── mapper/
-│   │   │   │   │       ├── ClientMapper.java
+│   │   │   │   │       ├── ClientEntityMapper.java        # Domain <-> Entity
 │   │   │   │   │       └── ProductEntityMapper.java
 │   │   │   │   ├── persistence/                           # Persistencia JPA
-│   │   │   │   │   ├── model/
-│   │   │   │   │   │   ├── BaseEntity.java
+│   │   │   │   │   ├── entity/
+│   │   │   │   │   │   ├── BaseEntity.java               # Base con timestamps, softDelete, softActive
 │   │   │   │   │   │   ├── ClientEntity.java
 │   │   │   │   │   │   ├── ProductEntity.java
 │   │   │   │   │   │   ├── OrderEntity.java
@@ -69,14 +69,16 @@ springdata/
 │   │   │   │   └── rest/                                  # Controladores REST
 │   │   │   │       ├── ClientController.java
 │   │   │   │       ├── ProductController.java
-│   │   │   │       ├── dto/
+│   │   │   │       ├── dto/request/
 │   │   │   │       │   ├── ClientRequest.java
-│   │   │   │       │   ├── ClientResponse.java
 │   │   │   │       │   ├── ProductRequest.java
+│   │   │   │       │   └── AddressRequest.java
+│   │   │   │       ├── dto/response/
+│   │   │   │       │   ├── ClientResponse.java
 │   │   │   │       │   ├── ProductResponse.java
-│   │   │   │       │   ├── AddressRequest.java
 │   │   │   │       │   └── AddressResponse.java
 │   │   │   │       └── mapper/
+│   │   │   │           ├── ClientMapper.java               # Domain <-> DTO (REST)
 │   │   │   │           ├── ProductMapper.java
 │   │   │   │           └── AddressMapper.java
 │   │   │   └── error/                                     # Manejo de errores
@@ -101,6 +103,97 @@ springdata/
 
 El proyecto implementa **Arquitectura Hexagonal** con las siguientes capas:
 
+```
++-------------------------------------------------------------+
+|                    CAPA DE INTERFAZ (REST)                 |
+|  +---------------------+  +-------------------------------+ |
+|  |  ClientController   |  |     ProductController        | |
+|  |  - GET/POST/PUT/   |  |     - GET/POST/PUT/DELETE   | |
+|  |    DELETE /clients |  |       /products              | |
+|  |  - PATCH /activate |  |                             | |
+|  +----------+----------+  +---------------+-------------+ |
+|             |                            |                 |
+|  +----------+----------+  +--------------+-------------+  |
+|  |    DTOs y Mappers   |  |    DTOs y Mappers           |  |
+|  +----------+----------+  +--------------+-------------+  |
++---------------------+---------------------------------------+
+                      |                            |
+                      v                            v
++-------------------------------------------------------------+
+|                    CAPA DE APLICACIÓN                       |
+|  +---------------------+  +-------------------------------+ |
+|  |    ClientUseCase    |  |       ProductUseCase         | |
+|  |  - createClient()   |  |   - getAllProducts()         | |
+|  |  - getClientById()  |  |   - getProductById()        | |
+|  |  - updateClient()   |  |   - createProduct()         | |
+|  |  - deleteClient()   |  |   - updateProduct()         | |
+|  |  - getAllClients()  |  |   - deleteProduct()         | |
+|  |  - activate()       |  |                             | |
+|  +----------+----------+  +---------------+-------------+  |
++---------------------+---------------------------------------+
+                      |                            |
+                      v                            v
++-------------------------------------------------------------+
+|                    CAPA DE DOMINIO                          |
+|  +--------------------------------------------------------+ |
+|  |                    PORTS (Interfaces)                   | |
+|  |  +------------------+          +--------------------+ | |
+|  |  |  ClientService   |          |   ProductService  | | |
+|  |  |  (Port In)      |          |   (Port In)       | | |
+|  |  +--------+---------+          +---------+--------+ | |
+|  |           |                                |          | |
+|  |  +--------+---------+          +---------+--------+ | |
+|  |  |   ClientPort     |          |ProductPersistence | | |
+|  |  |   (Port Out)    |          |Port (Port Out)    | | |
+|  |  +--------+---------+          +---------+--------+ | |
+|  +------------------+-----------------------------+-----+ |
+|                     |                               |       |
+|  +------------------+-----------------------------+-----+ |
+|  |                    DOMAIN MODELS               |       |
+|  |  +---------+  +---------+  +---------+  +-------+  |  |
+|  |  | Client  |  | Product |  |  Order  |  |Address |  |  |
+|  |  | (active)|  |         |  |         |  |        |  |  |
+|  |  +---------+  +---------+  +---------+  +-------+  |  |
+|  |  +-------------------------------------------------+ |  |
+|  |  |            ClientDomainService                  | |  |
+|  |  |  - validateForCreate()                         | |  |
+|  |  |  - validateForUpdate()                        | |  |
+|  |  |  - validateEmail()                           | |  |
+|  |  |  - activateClient()                         | |  |
+|  |  +-------------------------------------------------+ |  |
+|  +------------------------------------------------------+ |
++---------------------------+--------------------------------+
+                              |
+                              v
++-------------------------------------------------------------+
+|                    CAPA DE INFRAESTRUCTURA                  |
+|  +--------------------------------------------------------+ |
+|  |                      ADAPTERS                          | |
+|  |  +------------------+          +--------------------+ | |
+|  |  |  ClientAdapter   |          |   ProductAdapter   | | |
+|  |  | (implementa      |          |  (implementa       | | |
+|  |  |  ClientPort)     |          |  ProductPersistence| | |
+|  |  |  - softDelete    |          |  Port)             | | |
+|  |  |  - softActivate  |          |                    | | |
+|  |  +--------+---------+          +---------+--------+ | |
+|  +------------------+-----------------------------+-----+ |
+|                     |                               |       |
+|  +------------------+-----------------------------+-----+ |
+|  |                  PERSISTENCE (JPA)            |       |
+|  |  +---------------------+  +-------------------+ |       |
+|  |  | ClientRepository    |  |   ProductRepository| |    |
+|  |  | - findByIdWithAddr |  |   (JpaRepository) | |    |
+|  |  | - existsByEmail    |  |                   | |    |
+|  |  +---------------------+  +-------------------+ |       |
+|  |                                                      | |
+|  |  +----------------------------------------------+  |   |
+|  |  |              ENTIDADES JPA                    |  |   |
+|  |  |  ClientEntity  ProductEntity  OrderEntity   |  |   |
+|  |  |  AddressEntity  BaseEntity (timestamps,    |  |   |
+|  |  |  softDelete, softActive, isActive)        |  |   |
+|  |  +----------------------------------------------+  |   |
+|  +------------------------------------------------------+ |
++-------------------------------------------------------------+
 ```
 +-------------------------------------------------------------+
 |                    CAPA DE INTERFAZ (REST)                 |
@@ -261,20 +354,68 @@ springdoc:
 
 ## 7. Modelos de Dominio
 
-### 7.1 Person (Clase Base)
+### 7.1 Client (Entidad de Dominio)
 ```java
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Person {
+@Getter @Setter
+public class Client {
+    private Long clientId;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
+    private Boolean active;
     private Address address;
 }
 ```
-**Propósito:** Clase base que define atributos comunes de persona.
+**Propósito:** Representa un cliente. No hereda de Person. Incluye campo `active` para soft delete.
+**Nota:** Relación con Orders es unidireccional (Order -> Client), no al revés.
+
+---
+
+### 7.2 Address (Entidad de Dominio)
+```java
+@Data
+public class Address {
+    private Long id;
+    private String street;
+    private String city;
+    private String state;
+    private String postalCode;
+    private String country;
+}
+```
+**Propósito:** Dirección asociada a un cliente (relación OneToOne).
+
+---
+
+### 7.3 Product (Entidad de Dominio)
+```java
+@Getter @Setter
+public class Product {
+    private Long productId;
+    private String name;
+    private String description;
+    private Double price;
+    private Integer stock;
+    private Boolean isActive;
+}
+```
+**Propósito:** Representa un producto del catálogo.
+
+---
+
+### 7.4 Order (Entidad de Dominio)
+```java
+@Getter @Setter
+public class Order {
+    private Long orderId;
+    private Client client;
+    private List<Product> products;
+    private LocalDateTime orderDate;
+    private OrderStatus status;
+}
+```
+**Propósito:** Representa un pedido. Relación ManyToMany con Product.
 
 ---
 
@@ -375,21 +516,28 @@ public abstract class BaseEntity implements Serializable {
     
     private Boolean isActive = true;
 
-    public boolean softDelete() {
+    public void softDelete() {
         if (this.isActive) {
             this.isActive = false;
             this.deletedAt = LocalDateTime.now();
-            return true;
         }
-        return false;
+    }
+
+    public void softActive() {
+        if (!this.isActive) {
+            this.isActive = true;
+            this.deletedAt = null;
+        }
     }
 }
 ```
 **Características:**
 - Implementa **soft delete** (eliminación lógica)
+- Implementa **soft active** (activación lógica)
 - Timestamps automáticos (createdAt, updatedAt)
 - Campo isActive para control de estado
 - Herencia con `@MappedSuperclass`
+- Todos los campos tienen Column names en snake_case
 
 ---
 
@@ -612,6 +760,34 @@ public class ProductUseCase implements ProductService {
 
 ## 12. Servicios de Dominio
 
+### ClientDomainService
+```java
+@Service
+@AllArgsConstructor
+public class ClientDomainService {
+    private final ClientPort clientPort;
+
+    // Métodos principales:
+    // - validateForCreate(client): valida campos obligatorios, trim, formato email
+    // - validateForUpdate(existing, new): merge de datos, mantiene existentes si vienen null
+    // - validateEmail(email): valida formato con regex
+    // - createClient(client): crea nuevo cliente
+    // - updateClient(client, id): actualiza cliente con merge
+    // - deleteClient(id): elimina lógicamente (soft delete)
+    // - activateClient(id): reactiva cliente lógicamente
+    // - getClientById(id): obtiene cliente por id
+    // - getAllClients(): obtiene todos los clientes
+}
+```
+**Propósito:** Contains all business logic for Client entity.
+**Validaciones:**
+- Campos obligatorios en create: firstName, lastName, email, phone
+- Email validation con regex
+- Email uniqueness check
+- Merge logic en update (mantiene valores existentes si vienen null/empty)
+
+---
+
 ### ProductDomainService
 ```java
 @Slf4j
@@ -636,11 +812,12 @@ public class ProductDomainService {
 ### 13.1 ClientController
 ```
 Endpoints:
-- POST   /api/clients          -> createClient()
-- GET    /api/clients          -> getAllClients()
-- GET    /api/clients/{id}     -> getClientById()
-- PUT    /api/clients/{id}     -> updateClient()
-- DELETE /api/clients/{id}     -> deleteClient() [NO IMPLEMENTADO]
+- POST   /api/clients              -> createClient() [con validaciones]
+- GET    /api/clients              -> getAllClients() [SIN address, CON active]
+- GET    /api/clients/{id}         -> getClientById() [CON address, CON active]
+- PUT    /api/clients/{id}         -> updateClient() [con merge, sin modificar active]
+- DELETE /api/clients/{id}         -> deleteClient() [soft delete - active=false]
+- PATCH  /api/clients/{id}/activate -> activateClient() [soft active - active=true]
 ```
 
 ### 13.2 ProductController
@@ -661,12 +838,16 @@ Anotaciones Swagger:
 ## 14. DTOs (Data Transfer Objects)
 
 ### Request DTOs
-- **ClientRequest**: firstName, lastName, email, phone, address
+- **ClientRequest**: firstName, lastName, email, phone, street, city, state, postalCode, country
+  - Campos de address flatten (no es objeto anidado)
+  - Todos los campos son opcionales (se validan en el domain service)
 - **ProductRequest**: name, description, price, stock
 - **AddressRequest**: street, city, state, postalCode, country
 
 ### Response DTOs
-- **ClientResponse**: clientId, firstName, lastName, email, phone, address
+- **ClientResponse**: clientId, firstName, lastName, email, phone, active, street, city, state, zipCode, country
+  - Incluye campo `active` (Boolean) para indicar estado
+  - Campos de address flatten
 - **ProductResponse**: productId, name, description, price, stock, isActive
 - **AddressResponse**: addressId, street, city, state, zipCode, country
 
@@ -675,10 +856,17 @@ Anotaciones Swagger:
 ## 15. Mappers
 
 ### 15.1 Mappers de Persistencia (Manual)
-- **ClientMapper**: Convierte Client <-> ClientEntity, Address <-> AddressEntity
-- **ProductEntityMapper**: Interface MapStruct para Product <-> ProductEntity
+- **ClientEntityMapper**: Convierte Client (domain) <-> ClientEntity (JPA)
+  - mapToEntity(): domain -> entity
+  - mapToDomainBasic(): entity -> domain (sin address, para getAll)
+  - mapToDomainWithAddresses(): entity -> domain (con address, para getById)
+- **ProductEntityMapper**: Product (domain) <-> ProductEntity (JPA)
 
-### 15.2 Mappers REST (MapStruct)
+### 15.2 Mappers REST (Manual)
+- **ClientMapper**: Client (domain) <-> ClientRequest/ClientResponse
+  - mapToDomain(): request -> domain (ignora id, mapea address si viene)
+  - mapToResponse(): domain -> response (CON address)
+  - mapToClientResponseWithoutAddress(): domain -> response (SIN address, para getAll)
 - **ProductMapper**: Product <-> ProductRequest <-> ProductResponse
 - **AddressMapper**: Address <-> AddressRequest <-> AddressResponse
 
@@ -825,21 +1013,41 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
 ## 20. Características Notables
 
-### 20.1 Soft Delete
+### 20.1 Soft Delete (Eliminación Lógica)
 - Implementado en BaseEntity con `isActive` y `deletedAt`
 - No elimina registros físicamente
+- Endpoint DELETE /clients/{id} -> soft delete (active=false, deletedAt=now)
+- Endpoint PATCH /clients/{id}/activate -> soft activate (active=true, deletedAt=null)
 
-### 20.2 Timestamps Automáticos
+### 20.2 Soft Activate (Activación Lógica)
+- Implementado en BaseEntity con método `softActive()`
+- Reactiva clientes eliminados lógicamente
+
+### 20.3 Timestamps Automáticos
 - `@CreationTimestamp` -> createdAt
 - `@UpdateTimestamp` -> updatedAt
 
-### 20.3 Documentación API
+### 20.4 Optimización de Consultas
+- **getAllClients()**: NO carga direcciones (evita N+1 queries)
+- **getClientById()**: SÍ carga direcciones ( JOIN FETCH)
+- Mappers separados: mapToDomainBasic vs mapToDomainWithAddresses
+
+### 20.5 Validaciones en Dominio
+- Cliente:
+  - Campos obligatorios (create): firstName, lastName, email, phone
+  - Formato email (regex)
+  - Email único (existe en BD)
+  - Trim automático de datos
+  - Merge en update (mantiene valores existentes si vienen null/empty)
+- Producto: nombre único
+
+### 20.6 Merge en Update
+- Los campos que vienen vacíos en el request mantienen los valores existentes
+- Solo se actualizan los campos que vienen con datos
+
+### 20.7 Documentación API
 - Swagger UI disponible en `/api/swagger`
 - OpenAPI docs en `/api/docs`
-
-### 20.4 Validaciones en Dominio
-- Producto: nombre único
-- Cliente: trim de datos
 
 ---
 
