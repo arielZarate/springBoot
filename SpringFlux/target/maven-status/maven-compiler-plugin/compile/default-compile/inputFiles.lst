@@ -1,8 +1,0 @@
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/Application.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/config/WebClientConfig.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/dto/LoginRequest.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/dto/LoginResponse.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/exception/WebClientException.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/provider/WebClientMethod.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/provider/WebClientProvider.java
-/home/ariel/Escritorio/Repo/springBoot/spring/springWebClient/src/main/java/com/arielzarate/service/LoginService.java

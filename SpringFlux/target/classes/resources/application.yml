@@ -1,7 +1,0 @@
-fakes-tore:
-  base-url: https://fakestoreapi.com
-  timeout: 5000
-
-spring:
-  application:
-    name: springWebClient

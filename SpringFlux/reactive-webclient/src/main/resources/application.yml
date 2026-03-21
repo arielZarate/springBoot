@@ -1,0 +1,10 @@
+fake-store:
+  base-url: https://fakestoreapi.com
+  timeout: 5000
+  credentials:
+    username: mor_2314
+    password: 83r5^_
+
+spring:
+  application:
+    name: reactive-webclient
