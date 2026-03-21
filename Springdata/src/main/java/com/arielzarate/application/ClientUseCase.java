@@ -1,9 +1,9 @@
-package com.fake_store_login.application;
+package com.arielzarate.application;
 
 
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.domain.ports.in.ClientService;
-import com.fake_store_login.domain.services.ClientDomainService;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.domain.ports.in.ClientService;
+import com.arielzarate.domain.services.ClientDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

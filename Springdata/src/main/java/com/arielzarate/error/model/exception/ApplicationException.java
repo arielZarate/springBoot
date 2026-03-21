@@ -1,7 +1,7 @@
-package com.fake_store_login.error.model.exception;
+package com.arielzarate.error.model.exception;
 
 
-import com.fake_store_login.error.model.ApplicationError;
+import com.arielzarate.error.model.ApplicationError;
 import lombok.Getter;
 
 @Getter

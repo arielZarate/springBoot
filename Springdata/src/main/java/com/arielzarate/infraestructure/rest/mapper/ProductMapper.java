@@ -1,9 +1,9 @@
-package com.fake_store_login.infraestructure.rest.mapper;
+package com.arielzarate.infraestructure.rest.mapper;
 
 
-import com.fake_store_login.domain.model.Product;
-import com.fake_store_login.infraestructure.rest.dto.request.ProductRequest;
-import com.fake_store_login.infraestructure.rest.dto.response.ProductResponse;
+import com.arielzarate.domain.model.Product;
+import com.arielzarate.infraestructure.rest.dto.request.ProductRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ProductResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

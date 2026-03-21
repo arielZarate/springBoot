@@ -1,6 +1,6 @@
-package com.fake_store_login.infraestructure.persistence.repositories;
+package com.arielzarate.infraestructure.persistence.repositories;
 
-import com.fake_store_login.infraestructure.persistence.entity.ClientEntity;
+import com.arielzarate.infraestructure.persistence.entity.ClientEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -13,7 +13,7 @@ Utiliza Spring Data JPA para persistencia y expone una API REST con documentaci√
 |----------|-------|
 | **Nombre** | springdata |
 | **Versi√≥n** | 1.0-SNAPSHOT |
-| **Grupo** | com.fake_store_login |
+| **Grupo** | com.arielzarate |
 | **Framework** | Spring Boot 3.5.6 |
 | **Java Version** | 21 |
 | **Build Tool** | Maven |

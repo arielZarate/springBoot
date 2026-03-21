@@ -1,8 +1,8 @@
-package com.fake_store_login.infraestructure.adapter.mapper;
+package com.arielzarate.infraestructure.adapter.mapper;
 
 
-import com.fake_store_login.domain.model.Product;
-import com.fake_store_login.infraestructure.persistence.entity.ProductEntity;
+import com.arielzarate.domain.model.Product;
+import com.arielzarate.infraestructure.persistence.entity.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

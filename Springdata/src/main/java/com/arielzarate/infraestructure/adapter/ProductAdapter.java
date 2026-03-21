@@ -1,9 +1,9 @@
-package com.fake_store_login.infraestructure.adapter;
+package com.arielzarate.infraestructure.adapter;
 
-import com.fake_store_login.domain.model.Product;
-import com.fake_store_login.domain.ports.out.ProductPersistencePort;
-import com.fake_store_login.infraestructure.adapter.mapper.ProductEntityMapper;
-import com.fake_store_login.infraestructure.persistence.repositories.ProductRepository;
+import com.arielzarate.domain.model.Product;
+import com.arielzarate.domain.ports.out.ProductPersistencePort;
+import com.arielzarate.infraestructure.adapter.mapper.ProductEntityMapper;
+import com.arielzarate.infraestructure.persistence.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.fake_store_login.domain.model;
+package com.arielzarate.domain.model;
 
-import com.fake_store_login.domain.model.enums.OrderStatus;
+import com.arielzarate.domain.model.enums.OrderStatus;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

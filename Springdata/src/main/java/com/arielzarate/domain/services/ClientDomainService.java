@@ -1,11 +1,11 @@
-package com.fake_store_login.domain.services;
+package com.arielzarate.domain.services;
 
 
-import com.fake_store_login.domain.model.Address;
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.domain.ports.out.ClientPort;
-import com.fake_store_login.error.model.ClientError;
-import com.fake_store_login.error.model.exception.ClientException;
+import com.arielzarate.domain.model.Address;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.domain.ports.out.ClientPort;
+import com.arielzarate.error.model.ClientError;
+import com.arielzarate.error.model.exception.ClientException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

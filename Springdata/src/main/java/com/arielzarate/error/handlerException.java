@@ -1,9 +1,9 @@
-package com.fake_store_login.error;
+package com.arielzarate.error;
 
-import com.fake_store_login.error.model.ApplicationError;
-import com.fake_store_login.error.model.ClientError;
-import com.fake_store_login.error.model.exception.ApplicationException;
-import com.fake_store_login.error.model.exception.ClientException;
+import com.arielzarate.error.model.ApplicationError;
+import com.arielzarate.error.model.ClientError;
+import com.arielzarate.error.model.exception.ApplicationException;
+import com.arielzarate.error.model.exception.ClientException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

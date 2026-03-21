@@ -1,4 +1,4 @@
-package com.fake_store_login.error.model;
+package com.arielzarate.error.model;
 
 
 import lombok.Getter;

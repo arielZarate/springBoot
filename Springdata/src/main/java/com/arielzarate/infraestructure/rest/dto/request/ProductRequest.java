@@ -1,4 +1,4 @@
-package com.fake_store_login.infraestructure.rest.dto.request;
+package com.arielzarate.infraestructure.rest.dto.request;
 
 
 import lombok.AllArgsConstructor;

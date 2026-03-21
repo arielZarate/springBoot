@@ -1,11 +1,11 @@
-package com.fake_store_login.infraestructure.rest;
+package com.arielzarate.infraestructure.rest;
 
 
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.domain.ports.in.ClientService;
-import com.fake_store_login.infraestructure.rest.dto.request.ClientRequest;
-import com.fake_store_login.infraestructure.rest.dto.response.ClientResponse;
-import com.fake_store_login.infraestructure.rest.mapper.ClientMapper;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.domain.ports.in.ClientService;
+import com.arielzarate.infraestructure.rest.dto.request.ClientRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ClientResponse;
+import com.arielzarate.infraestructure.rest.mapper.ClientMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

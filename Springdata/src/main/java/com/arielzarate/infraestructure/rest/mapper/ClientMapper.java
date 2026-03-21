@@ -1,9 +1,9 @@
-package com.fake_store_login.infraestructure.rest.mapper;
+package com.arielzarate.infraestructure.rest.mapper;
 
-import com.fake_store_login.domain.model.Address;
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.infraestructure.rest.dto.request.ClientRequest;
-import com.fake_store_login.infraestructure.rest.dto.response.ClientResponse;
+import com.arielzarate.domain.model.Address;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.infraestructure.rest.dto.request.ClientRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ClientResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

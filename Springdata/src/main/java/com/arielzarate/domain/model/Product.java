@@ -1,4 +1,4 @@
-package com.fake_store_login.domain.model;
+package com.arielzarate.domain.model;
 
 
 import lombok.*;

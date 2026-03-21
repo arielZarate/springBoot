@@ -1,9 +1,9 @@
-package com.fake_store_login.infraestructure.adapter.mapper;
+package com.arielzarate.infraestructure.adapter.mapper;
 
-import com.fake_store_login.domain.model.Address;
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.infraestructure.persistence.entity.AddressEntity;
-import com.fake_store_login.infraestructure.persistence.entity.ClientEntity;
+import com.arielzarate.domain.model.Address;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.infraestructure.persistence.entity.AddressEntity;
+import com.arielzarate.infraestructure.persistence.entity.ClientEntity;
 import org.springframework.stereotype.Component;
 
 @Component

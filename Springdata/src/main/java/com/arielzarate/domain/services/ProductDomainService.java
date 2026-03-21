@@ -1,10 +1,10 @@
-package com.fake_store_login.domain.services;
+package com.arielzarate.domain.services;
 
 
-import com.fake_store_login.domain.model.Product;
-import com.fake_store_login.domain.ports.out.ProductPersistencePort;
-import com.fake_store_login.error.model.ApplicationError;
-import com.fake_store_login.error.model.exception.ApplicationException;
+import com.arielzarate.domain.model.Product;
+import com.arielzarate.domain.ports.out.ProductPersistencePort;
+import com.arielzarate.error.model.ApplicationError;
+import com.arielzarate.error.model.exception.ApplicationException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

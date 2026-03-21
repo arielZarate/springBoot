@@ -1,6 +1,6 @@
-package com.fake_store_login.domain.ports.in;
+package com.arielzarate.domain.ports.in;
 
-import com.fake_store_login.domain.model.Product;
+import com.arielzarate.domain.model.Product;
 
 import java.util.List;
 

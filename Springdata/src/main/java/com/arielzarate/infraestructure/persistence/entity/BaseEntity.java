@@ -1,4 +1,4 @@
-package com.fake_store_login.infraestructure.persistence.entity;
+package com.arielzarate.infraestructure.persistence.entity;
 
 
 import jakarta.persistence.Column;

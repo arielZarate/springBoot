@@ -1,10 +1,10 @@
-package com.fake_store_login.infraestructure.adapter;
+package com.arielzarate.infraestructure.adapter;
 
-import com.fake_store_login.domain.model.Client;
-import com.fake_store_login.domain.ports.out.ClientPort;
-import com.fake_store_login.infraestructure.adapter.mapper.ClientEntityMapper;
-import com.fake_store_login.infraestructure.persistence.entity.ClientEntity;
-import com.fake_store_login.infraestructure.persistence.repositories.ClientRepository;
+import com.arielzarate.domain.model.Client;
+import com.arielzarate.domain.ports.out.ClientPort;
+import com.arielzarate.infraestructure.adapter.mapper.ClientEntityMapper;
+import com.arielzarate.infraestructure.persistence.entity.ClientEntity;
+import com.arielzarate.infraestructure.persistence.repositories.ClientRepository;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

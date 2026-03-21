@@ -1,11 +1,11 @@
-package com.fake_store_login.infraestructure.rest;
+package com.arielzarate.infraestructure.rest;
 
 
-import com.fake_store_login.domain.model.Product;
-import com.fake_store_login.domain.ports.in.ProductService;
-import com.fake_store_login.infraestructure.rest.dto.request.ProductRequest;
-import com.fake_store_login.infraestructure.rest.dto.response.ProductResponse;
-import com.fake_store_login.infraestructure.rest.mapper.ProductMapper;
+import com.arielzarate.domain.model.Product;
+import com.arielzarate.domain.ports.in.ProductService;
+import com.arielzarate.infraestructure.rest.dto.request.ProductRequest;
+import com.arielzarate.infraestructure.rest.dto.response.ProductResponse;
+import com.arielzarate.infraestructure.rest.mapper.ProductMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.fake_store_login.domain.model.enums;
+package com.arielzarate.domain.model.enums;
 
 
 public enum OrderStatus {
