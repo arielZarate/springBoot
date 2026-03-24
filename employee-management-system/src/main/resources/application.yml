@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/empleados_db
+    username: postgres
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+  servlet:
+    path-context: /api/v1
