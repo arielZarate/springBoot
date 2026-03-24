@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>page individuo</title>
+    <link rel="stylesheet" th:href="@{/individuo/individuo.css}">
 </head>
 <body>
 
 <h1>Page individuo</h1>
 
-<p th:text="${individuo}"></p>
+<div th:if="${individuos == null or individuos.empty}" class="mensaje-vacio">
+    <span>La lista está vacía</span>
+</div>
 
+<table th:unless="${individuos == null or individuos.empty}">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Edad</th>
+            <th>Teléfono</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ind : ${individuos}">
+            <td th:text="${ind.nombre}"></td>
+            <td th:text="${ind.apellido}"></td>
+            <td th:text="${ind.correo}"></td>
+            <td th:text="${ind.edad}"></td>
+            <td th:text="${ind.telefono}"></td>
+        </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
