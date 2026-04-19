@@ -14,6 +14,16 @@ public class ApplicationError {
 
 
     /**
+     * Los dos constructores son necesarios para poder crear errores con o sin origen
+     */
+    public ApplicationError(String message, HttpStatus status) {
+        this.message = message;
+        this.status = status;
+
+    }
+
+
+    /**
      * Internal Server Error con sobrecarga
      */
     public static ApplicationError serverError(String detail) {
@@ -43,14 +53,7 @@ public class ApplicationError {
     }
 
 
-    /**
-     * Los dos constructores son necesarios para poder crear errores con o sin origen
-     */
-    public ApplicationError(String message, HttpStatus status) {
-        this.message = message;
-        this.status = status;
 
-    }
 
 
 }

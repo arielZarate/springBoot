@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "product")
 @Setter
 @Getter
-public class ProductEntity extends BaseEntity {
+public class  ProductEntity extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
