@@ -1,4 +1,4 @@
-package com.arielzarate.Holamundo_Thymeleaf_Mvc.domain;
+package com.arielzarate.Spring_thymeleaf_Mvc.domain;
 
 
 import lombok.Data;

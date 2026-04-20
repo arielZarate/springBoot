@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /v1
+
+spring:
+  application:
+    name: SpringThymeleaf-Mvc
+
+  #Thymeleaf
+  thymeleaf:
+    cache: false
+
+  servlet:
+    multipart:
+      enabled: true
+
+  # database
+  datasource:
+    url: jdbc:postgresql://localhost:5432/garage_db
+    username: postgres
+    password: 1111
+    driver-class-name: org.postgresql.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+  #devtools
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      poll-interval: 1000
+      quiet-period: 500
+    livereload:
+      enabled: true

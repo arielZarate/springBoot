@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Gestión de Reparación</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a th:href="@{/}">Gestión de Reparación</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a th:href="@{/}">Clientes</a></li>
+            <li><a th:href="@{/}">Servicios</a></li>
+            <li><a th:href="@{/}">Presupuestos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header con botón siempre-visible -->
+            <div class="page-header">
+                <h1>Clientes</h1>
+                <a th:href="@{/client/form}" class="btn btn-primary">Nuevo Cliente</a>
+            </div>
+
+            <!-- Tabla siempre visible -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>CUIT</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Si hay clientes, mostrar -->
+                    <tr th:each="client : ${clients}">
+                        <td th:text="${client.id}"></td>
+                        <td th:text="${client.name}"></td>
+                        <td th:text="${client.lastName}"></td>
+                        <td th:text="${client.phone}"></td>
+                        <td th:text="${client.address}"></td>
+                        <td th:text="${client.email}"></td>
+                        <td th:text="${client.cuit}"></td>
+                        <td class="actions">
+                            <a th:href="@{/client/{id}/edit(id=${client.id})}" class="btn btn-sm btn-warning">Editar</a>
+                            <a th:href="@{/client/{id}/delete(id=${client.id})}" class="btn btn-sm btn-danger"
+                               onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                        </td>
+                    </tr>
+                    <!-- Si NO hay clientes, mostrar fila vacía -->
+                    <tr th:if="${clients == null or clients.empty}">
+                        <td colspan="8" class="mensaje-vacio">No hay clientes registrados</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Gestión de Reparación. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
