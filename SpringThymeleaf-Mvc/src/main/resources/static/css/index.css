@@ -63,6 +63,11 @@
     background-color: #c82333;
 }
 
+.btn-delete {
+    margin-top: 1px;
+    padding: 10px;
+}
+
 .btn-warning {
     background-color: #f39c12;
     color: white;
@@ -79,7 +84,7 @@ table {
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 thead {
@@ -122,19 +127,19 @@ tbody tr:hover {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     table {
         font-size: 0.85rem;
     }
-    
+
     th, td {
         padding: 0.5rem;
     }
-    
+
     .actions {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         text-align: center;

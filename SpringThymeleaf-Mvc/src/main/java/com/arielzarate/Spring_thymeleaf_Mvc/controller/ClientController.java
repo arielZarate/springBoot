@@ -2,17 +2,17 @@ package com.arielzarate.Spring_thymeleaf_Mvc.controller;
 
 import com.arielzarate.Spring_thymeleaf_Mvc.dto.ClientDTO;
 import com.arielzarate.Spring_thymeleaf_Mvc.service.ClientService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import jakarta.validation.Valid;
 
 
 @Slf4j
@@ -45,20 +45,23 @@ public class ClientController {
 
     // Guardar nuevo
     @PostMapping
-    public String create(@Valid @ModelAttribute("client") ClientDTO clientDTO, BindingResult result, Model model) {
+    public String create(@Valid @ModelAttribute("client") ClientDTO clientDTO) // BindingResult result, Model model
+    {
         log.info("POST create client: {} {}", clientDTO.getName(), clientDTO.getLastName());
-        if (result.hasErrors()) {
-            return "formClient";
-        }
+        //   if (result.hasErrors()) {
+        //       return "formClient";
+        //  }
         clientService.save(clientDTO);
         log.info("client created successfully");
         return "redirect:/";
     }
 
     // Formulario editar
-    @GetMapping("/{id}/edit")
+    @GetMapping("/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
-        log.info("request show edit form for id: {}", id);
+        log.info("PUT form for id: {}", id);
+
+        //esta logica ve en el service nunca aca
         var client = clientService.findById(id);
         if (client.isEmpty()) {
             log.warn("client not found: {}", id);
@@ -70,19 +73,20 @@ public class ClientController {
 
     // Actualizar
     @PostMapping("/{id}")
-    public String update(@PathVariable Long id, @Valid @ModelAttribute("client") ClientDTO clientDTO, BindingResult result, Model model) {
+    public String update(@PathVariable Long id, @Valid @ModelAttribute("client") ClientDTO clientDTO) //BindingResult result, Model model
+    {
         log.info("request update client id: {}", id);
-        if (result.hasErrors()) {
-            return "formClient";
-        }
-        clientDTO.setId(id);
+//        if (result.hasErrors()) {
+//            return "formClient";
+//        }
+        //clientDTO.setId(id);
         clientService.save(clientDTO);
         log.info("client updated successfully");
         return "redirect:/";
     }
 
     // Eliminar
-    @GetMapping("/{id}/delete")
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         log.info("request delete client id: {}", id);
         clientService.deleteById(id);
