@@ -92,20 +92,20 @@ Cada template (`index.html`, `formClient.html`) usa `th:replace` para inyectar l
 ```html
 <!-- index.html / formClient.html -->
 <body>
-    <nav th:replace="layout/layout :: navbar"></nav>
+    <nav th:replace="~{layout/layout :: navbar}"></nav>
 
     <!-- Contenido propio de cada página -->
     <main class="main-content">
         ... contenido específico ...
     </main>
 
-    <footer th:replace="layout/layout :: footer"></footer>
+    <footer th:replace="~{layout/layout :: footer}"></footer>
 </body>
 ```
 
 ### ¿Cómo funciona `th:replace`?
 
-`th:replace="layout/layout :: navbar"` significa:
+`th:replace="~{layout/layout :: navbar}"` significa:
 1. Buscar el archivo `layout/layout.html` en la carpeta `templates/`
 2. Dentro de ese archivo, encontrar el elemento con `th:fragment="navbar"`
 3. Reemplazar completamente el elemento actual por ese fragmento
@@ -993,6 +993,143 @@ Sale            (vehiculo_id, items, total, vendedor_id)
 
 ### Tecnología complementaria: HTMX
 Ver sección HTMX arriba para mejorar la UX sin recargar páginas completas.
+
+---
+
+## Arquitectura de configuración profesional (Settings desde DB)
+
+### Idea general
+
+En lugar de usar `messages.properties` para datos como nombre del taller, año, autor del footer, etc., se usa una **tabla en la BD** para que el admin pueda editarlos desde un panel sin tocar archivos ni reiniciar.
+
+### Flujo de datos
+
+```
+┌──────────────────────┐
+│  messages.properties │ ← valores por defecto (fallback si no hay en DB)
+│  company.name=Taller │
+└──────────┬───────────┘
+           │
+┌──────────▼──────────┐     ┌──────────────────┐
+│  DB: system_config  │────►│  ConfigService    │ ← busca primero en DB,
+│  key = value        │     │  si no hay →      │   si no existe cae al
+└─────────────────────┘     │  fallback al      │   default del properties
+                            │  properties       │
+                            └────────┬──────────┘
+                                     │
+                            ┌────────▼──────────┐
+                            │ @ControllerAdvice │ ← inyecta en TODAS las
+                            │ model.addAttribute│   vistas automáticamente
+                            │ ("companyName",   │
+                            │  configService.get│
+                            │  ("company.name"))│
+                            └────────┬──────────┘
+                                     │
+                                     ▼
+                            ┌────────────────────┐
+                            │ Thymeleaf templates│
+                            │ ${companyName}     │ ← disponible en todas las vistas
+                            └────────────────────┘
+```
+
+### Componentes necesarios
+
+#### 1. Entidad JPA
+
+```java
+@Entity
+@Table(name = "system_config")
+public class SystemConfig {
+
+    @Id
+    private String key;
+
+    private String value;
+}
+```
+
+#### 2. Repository
+
+```java
+public interface SystemConfigRepository extends JpaRepository<SystemConfig, String> {
+}
+```
+
+#### 3. Service con fallback al properties
+
+```java
+@Service
+public class ConfigService {
+
+    private final SystemConfigRepository systemConfigRepository;
+
+    @Value("${company.name:Taller Mecanico}")
+    private String defaultCompanyName;
+
+    public ConfigService(SystemConfigRepository systemConfigRepository) {
+        this.systemConfigRepository = systemConfigRepository;
+    }
+
+    public String get(String key, String defaultValue) {
+        return systemConfigRepository.findById(key)
+                .map(SystemConfig::getValue)
+                .orElse(defaultValue);
+    }
+}
+```
+
+#### 4. @ControllerAdvice (disponible en todas las vistas)
+
+```java
+@ControllerAdvice
+public class GlobalConfigAdvice {
+
+    private final ConfigService configService;
+
+    public GlobalConfigAdvice(ConfigService configService) {
+        this.configService = configService;
+    }
+
+    @ModelAttribute("companyName")
+    public String companyName() {
+        return configService.get("company.name", "Taller Mecanico");
+    }
+
+    @ModelAttribute("footerAuthor")
+    public String footerAuthor() {
+        return configService.get("footer.author", "Ariel Zarate");
+    }
+
+    @ModelAttribute("companyYear")
+    public String companyYear() {
+        return configService.get("company.year", "2026");
+    }
+}
+```
+
+#### 5. En el HTML (ya no usa `#{}`, usa `${}`)
+
+```html
+<footer class="footer" th:fragment="footer">
+    <p>&copy; <span th:text="${companyYear}">2026</span>
+       <span th:text="${companyName}">Taller</span>.
+       Todos los derechos reservados.</p>
+    <p>Desarrollado por <span th:text="${footerAuthor}">Ariel Zarate</span></p>
+</footer>
+```
+
+### Ventajas de este enfoque
+
+- **Admin edita desde un panel** en el frontend sin tocar archivos ni reiniciar el servidor
+- **Fallback seguro**: si la DB no tiene el valor, se usa el default del `application.yml`
+- **Un solo `@ControllerAdvice`** centralizado, no repetir lógica en cada controller
+- **Disponible en todas las vistas** automáticamente, sin pasar el model en cada controller
+- **Escalable**: se puede agregar cualquier config sin modificar el HTML (solo agregar la key en DB y el `@ModelAttribute`)
+
+### Desventajas/consideraciones
+
+- Requiere una consulta a DB en cada request (se puede mitigar con caché tipo `@Cacheable`)
+- Para datos que cambian poco (nombre del taller, año), `messages.properties` puede ser suficiente
 
 ---
 

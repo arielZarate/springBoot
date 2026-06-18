@@ -11,6 +11,11 @@ spring:
       filter:
         enabled: true
 
+  #Messages
+  messages:
+    encoding: UTF-8
+    cache-duration: 0
+
   #Thymeleaf
   thymeleaf:
     cache: false
