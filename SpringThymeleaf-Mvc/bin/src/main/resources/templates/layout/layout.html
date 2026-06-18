@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Reparación</title>
-    <link rel="stylesheet" th:href="@{/css/layout.css}">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar" th:fragment="navbar">
         <div class="nav-brand">
-            <a th:href="@{/}">Gestión de Reparación</a>
+            <a th:href="@{/client}" th:text="#{menu.title}" ></a>
         </div>
         <ul class="nav-menu">
-            <li><a th:href="@{/}">Clientes</a></li>
+            <li><a th:href="@{/client}">Clientes</a></li>
             <li><a th:href="@{/}">Servicios</a></li>
             <li><a th:href="@{/}">Presupuestos</a></li>
         </ul>
@@ -26,7 +24,8 @@
 
     <!-- Footer -->
     <footer class="footer" th:fragment="footer">
-        <p>&copy; 2026 Gestión de Reparación. Todos los derechos reservados.</p>
+        <p>&copy; <span th:text="#{footer.year}">2026</span> <span th:text="#{footer.company}">Gestión de Reparación</span>. Todos los derechos reservados.</p>
+        <p>Desarrollado por <span th:text="#{footer.author}"></span></p>
     </footer>
 </body>
 </html>

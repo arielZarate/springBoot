@@ -60,21 +60,4 @@ public class ClientServiceImpl implements ClientService {
 
 
 
-
-    private void validation(ClientDTO clientModel) {
-        if (clientModel.getName() == null || clientModel.getName().isEmpty()) {
-            throw new IllegalArgumentException("Client name is required");
-        }
-        if (clientModel.getLastName() == null || clientModel.getLastName().isEmpty()) {
-            throw new IllegalArgumentException("Client last name is required");
-        }
-        if (clientModel.getEmail() == null || clientModel.getEmail().isEmpty()) {
-            throw new IllegalArgumentException("Client email is required");
-        }
-        if (clientModel.getCuit() == null || clientModel.getCuit().isEmpty()) {
-            throw new IllegalArgumentException("Client cuit is required");
-
-    }
-    }
-
 }

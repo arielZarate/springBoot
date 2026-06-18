@@ -78,13 +78,14 @@ public class ClientController {
 
     // Update
     @PostMapping("/{id}")
-    public String update(@PathVariable Long id, @Valid @ModelAttribute("client") ClientDTO clientDTO) //BindingResult result, Model model
+    public String update(@PathVariable Long id, @Valid @ModelAttribute("client") ClientDTO clientDTO,Errors errors) //BindingResult result, Model model
     {
         log.info("request update client id: {}", id);
-//        if (result.hasErrors()) {
-//            return "formClient";
-//        }
-        //clientDTO.setId(id);
+        if (errors.hasErrors()) {
+            log.warn("validation errors: {}", errors.getAllErrors());
+            return "formClient";
+        }
+        clientDTO.setId(id);
         clientService.save(clientDTO);
         log.info("client updated successfully");
         return "redirect:/client";

@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /v1
+    context-path: /api
 
 spring:
   application:
@@ -10,6 +10,11 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+
+  #Messages
+  messages:
+    encoding: UTF-8
+    cache-duration: 0
 
   #Thymeleaf
   thymeleaf:
