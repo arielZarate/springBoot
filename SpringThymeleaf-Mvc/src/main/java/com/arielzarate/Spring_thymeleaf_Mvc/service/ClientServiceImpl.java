@@ -1,9 +1,8 @@
-package com.arielzarate.Spring_thymeleaf_Mvc.service.impl;
+package com.arielzarate.Spring_thymeleaf_Mvc.service;
 
 import com.arielzarate.Spring_thymeleaf_Mvc.dto.ClientDTO;
 import com.arielzarate.Spring_thymeleaf_Mvc.persistence.entity.Client;
 import com.arielzarate.Spring_thymeleaf_Mvc.persistence.repository.ClientRepository;
-import com.arielzarate.Spring_thymeleaf_Mvc.service.ClientService;
 import com.arielzarate.Spring_thymeleaf_Mvc.service.mapper.ClientMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -59,5 +58,23 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.deleteById(id);
     }
 
+
+
+
+    private void validation(ClientDTO clientModel) {
+        if (clientModel.getName() == null || clientModel.getName().isEmpty()) {
+            throw new IllegalArgumentException("Client name is required");
+        }
+        if (clientModel.getLastName() == null || clientModel.getLastName().isEmpty()) {
+            throw new IllegalArgumentException("Client last name is required");
+        }
+        if (clientModel.getEmail() == null || clientModel.getEmail().isEmpty()) {
+            throw new IllegalArgumentException("Client email is required");
+        }
+        if (clientModel.getCuit() == null || clientModel.getCuit().isEmpty()) {
+            throw new IllegalArgumentException("Client cuit is required");
+
+    }
+    }
 
 }

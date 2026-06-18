@@ -8,17 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="nav-brand">
-        <a th:href="@{/}">Gestión de Reparación</a>
-    </div>
-    <ul class="nav-menu">
-        <li><a th:href="@{/}">Clientes</a></li>
-        <li><a th:href="@{/}">Servicios</a></li>
-        <li><a th:href="@{/}">Presupuestos</a></li>
-    </ul>
-</nav>
+
+<nav th:replace="layout/layout :: navbar"></nav>
 
 <!-- Main Content -->
 <main class="main-content">
@@ -55,15 +46,11 @@
                 <td th:text="${client.cuit}"></td>
                 <td class="actions">
                     <a th:href="@{/client/{id}(id=${client.id})}" class="btn btn-sm btn-warning">Editar</a>
-                    <!--                    <a th:href="@{/client/{id}(id=${client.id})}" class="btn btn-sm btn-danger"-->
-                    <!--                       onclick="return confirm('¿Estás seguro?')">Eliminar</a>-->
                     <form th:action="@{/client/{id}(id=${client.id})}"
                           method="post"
                           onsubmit="return confirm('¿Estás seguro que querés eliminar este cliente?')"
                     >
-
                         <input type="hidden" name="_method" value="delete"/>
-
                         <button type="submit" class="btn btn-sm btn-danger btn-delete">
                             Eliminar
                         </button>
@@ -79,9 +66,7 @@
     </div>
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2026 Gestión de Reparación. Todos los derechos reservados.</p>
-</footer>
+<footer th:replace="layout/layout :: footer"></footer>
+
 </body>
 </html>

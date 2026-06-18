@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,7 +27,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    // Listar todos
+    // List and search
     @GetMapping
     public String getClients(Model model) {
         log.info("request get clients");
@@ -35,28 +36,32 @@ public class ClientController {
         return "index";
     }
 
-    // Formulario nuevo
+    // form create
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         log.info("request show create form");
+
+        //necesita mandar un objeto vacio para que thymeleaf pueda bindear los campos del formulario
+        //cuando el formulario se envie, thymeleaf va a crear un objeto client con los datos del formulario y lo va a mandar al metodo create
         model.addAttribute("client", new ClientDTO());
         return "formClient";
     }
 
-    // Guardar nuevo
-    @PostMapping
-    public String create(@Valid @ModelAttribute("client") ClientDTO clientDTO) // BindingResult result, Model model
+    // save new
+    @PostMapping                              //recibe un objeto client de tipo ClientDTO con los datos del formulario, el @ModelAttribute("client") indica que el objeto se llama "client" y thymeleaf lo va a bindear con los campos del formulario
+    public String create(@Valid @ModelAttribute("client") ClientDTO clientDTO, Errors errors) // BindingResult result, Model model
     {
         log.info("POST create client: {} {}", clientDTO.getName(), clientDTO.getLastName());
-        //   if (result.hasErrors()) {
-        //       return "formClient";
-        //  }
+        if(errors.hasErrors()) {
+            log.warn("validation errors: {}", errors.getAllErrors());
+            return "formClient";
+        }
         clientService.save(clientDTO);
         log.info("client created successfully");
-        return "redirect:/";
+        return "redirect:/client";
     }
 
-    // Formulario editar
+    // Form edit
     @GetMapping("/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         log.info("PUT form for id: {}", id);
@@ -65,13 +70,13 @@ public class ClientController {
         var client = clientService.findById(id);
         if (client.isEmpty()) {
             log.warn("client not found: {}", id);
-            return "redirect:/";
+            return "redirect:/client";
         }
         model.addAttribute("client", client.get());
         return "formClient";
     }
 
-    // Actualizar
+    // Update
     @PostMapping("/{id}")
     public String update(@PathVariable Long id, @Valid @ModelAttribute("client") ClientDTO clientDTO) //BindingResult result, Model model
     {
@@ -82,7 +87,7 @@ public class ClientController {
         //clientDTO.setId(id);
         clientService.save(clientDTO);
         log.info("client updated successfully");
-        return "redirect:/";
+        return "redirect:/client";
     }
 
     // Eliminar
@@ -91,7 +96,7 @@ public class ClientController {
         log.info("request delete client id: {}", id);
         clientService.deleteById(id);
         log.info("client deleted successfully");
-        return "redirect:/";
+        return "redirect:/client";
     }
 
 }

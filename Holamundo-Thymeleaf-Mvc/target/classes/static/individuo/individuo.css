@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color:#fefefe;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
+.mensaje-vacio {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #ffebee;
+    border: 2px solid #ef5350;
+    border-radius: 8px;
+    color: #c62828;
+    font-size: 22px;
+    font-weight: bold;
+}

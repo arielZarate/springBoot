@@ -14,7 +14,7 @@ public class ClientMapper {
         return new ClientDTO(
                 entity.getId(),
                 entity.getName(),
-                entity.getLast_name(),
+                entity.getLastName(),
                 entity.getPhone(),
                 entity.getAddress(),
                 entity.getEmail(),
@@ -31,7 +31,7 @@ public class ClientMapper {
             entity.setId(model.getId());
         }
         entity.setName(model.getName());
-        entity.setLast_name(model.getLastName());
+        entity.setLastName(model.getLastName());
         entity.setPhone(model.getPhone());
         entity.setAddress(model.getAddress());
         entity.setEmail(model.getEmail());
